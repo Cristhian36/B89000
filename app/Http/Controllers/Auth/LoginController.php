@@ -26,17 +26,10 @@ class LoginController extends Controller
      * @var string
      */
 
-    public function index(Request $request)
+    public function index()
     {
-        if($request->user()->authorizeRoles('admin')){
         return view('home');
-        }
-        if($request->user()->authorizeRoles('emple')){
-            return view('home');
-            }
-            if($request->user()->authorizeRoles('user')){
-                return view('welcome');
-                }
+
     }
 
     
