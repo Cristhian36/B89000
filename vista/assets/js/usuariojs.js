@@ -6,6 +6,7 @@ function inicializarEventos() {
     loadDataTableUsuarios();
     tooltip();
     rgUsuario();
+
 }
 
 function rgUsuario() {  
@@ -13,6 +14,7 @@ function rgUsuario() {
   event.preventDefault();
   var apaterno = $("#apaterno").val();
   var amaterno = $("#amaterno").val();
+  var cedula = $("#cedula").val();
   var nombre =$("#nombre").val();
   var usuario = $("#usuario").val();
   var clave = $("#clave").val();  
@@ -32,6 +34,15 @@ function rgUsuario() {
     return false;
   }else {
     $("#campoamaterno").removeClass("has-error");
+  }
+
+  if (cedula == null || cedula.length == 0) {
+    $("#campocedula").addClass("has-error");
+    alert("Por favor ingresa  el numero de cedula");
+    return false;
+  }
+  else {
+    $("#campoapaterno").removeClass("has-error");
   }
 
   if (nombre == null || nombre.length == 0) {
@@ -104,7 +115,7 @@ function loadUsers() {
         $('#contenido').html(response);
         $('#contenido').fadeIn();
     });
-}  
+}
 
 function tooltip() {
    $('[data-toggle="tooltip"]').tooltip(); 
@@ -116,6 +127,7 @@ function loadDataTableUsuarios() {
     "ajax": "../controlador/loadListController.php?action=users",        
     "columns": [
     { "data" : "id" },
+    { "data" : "cedula"},
     { "data" : "paterno" },
     { "data" : "materno" },
     { "data" : "nombre"},
@@ -129,7 +141,7 @@ function loadDataTableUsuarios() {
     "sPaginationType": "full_numbers",          
     "oLanguage": {
             "sProcessing":     "Procesando...",
-        "sLengthMenu": 'Mostrar <select>'+
+        "sLengthMenu": 'Mostrar <select class="form-control">'+
             '<option value="10">10</option>'+
             '<option value="20">20</option>'+
             '<option value="30">30</option>'+
@@ -159,4 +171,8 @@ function loadDataTableUsuarios() {
         }
         }
   });
+
+ 
 }
+
+

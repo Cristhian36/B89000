@@ -8,7 +8,8 @@ switch ($_GET['action']) {
 		$r = $bo->traeUsuariosBo();
 		print $r;
 		break;
-}
-          
 
-  
+
+}
+
+

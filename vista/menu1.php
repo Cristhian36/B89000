@@ -24,11 +24,11 @@ require_once "../controlador/sessionUserTypeAdmin.php";
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Menu1</a> 
+                <a class="navbar-brand" href="#">Administrador</a> 
             </div>
             <div class="row-fluid">
                 <div class="row" style="float: left; margin: 0 0 0 25px;" >
-                    <p style="color: white;"><?php $hoy = date("Y-m-d "); echo $hoy; echo $_SESSION['nombre']; ?></p>
+                    <p style="color: white;"><?php $hoy = date("d-m-y "); echo $hoy;echo'<br>'; echo $_SESSION['nombre']; ?></p>
                 </div>
                 <div class="row" style="float: right; margin: 12px 25px 0 0;">
                     <a href="#" class="btn btn-danger" style="width: 100px;" onclick="logOut()">Salir</a>
@@ -44,10 +44,11 @@ require_once "../controlador/sessionUserTypeAdmin.php";
                         <img src="assets/img/find_user.png" class="user-image img-responsive"/>
                     </li>
                     <li>
-                        <a  href="#" onclick="loadUsers()"><i class="fa fa-dashboard fa-2x" ></i> Dashboard</a>
+                
+                        <a  href="#" onclick="loadUsers()"><i class="fa fa-user fa-2x" ></i> Usuarios</a>
                     </li>
                       <li>
-                        <a  href="#"><i class="fa fa-desktop fa-2x"></i> UI Elements</a>
+                        <a  href="#" onclick="loadEmpleados()"><i class="fa fa fa-street-view fa-2x"></i>Empleados</a>
                     </li>
                     <li>
                         <a  href="#"><i class="fa fa-qrcode fa-2x"></i> Tabs & Panels</a>

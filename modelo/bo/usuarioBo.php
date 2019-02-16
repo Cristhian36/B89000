@@ -15,8 +15,8 @@ class usuarioBo {
         return $resultado;
     }
 
-    function registrarUsuarioBo($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status) {
-        $resultado = $this->dao->registrarUsuarioDao($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status);
+    function registrarUsuarioBo($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status,$cedula) {
+        $resultado = $this->dao->registrarUsuarioDao($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status,$cedula);
         return $resultado;
     }
 
@@ -24,14 +24,16 @@ class usuarioBo {
         $resultado = $this->dao->traeUsuariosDao();
         return $resultado;
     }
+    
+  
 
     function actualizarUsuarioBo($usuario) {
         $resultado = $this->dao->actualizarUsuarioDao($usuario);
         return $resultado;
     }
 
-    function saveDataUsuarioBo($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status) {
-        $resultado = $this->dao->saveDataUsuarioDao($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status);
+    function saveDataUsuarioBo($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status, $cedula) {
+        $resultado = $this->dao->saveDataUsuarioDao($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status, $cedula);
         return $resultado;
     }
 

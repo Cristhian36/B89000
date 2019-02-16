@@ -34,6 +34,7 @@ require_once "../controlador/sessionUserTypeAdmin.php";
             <thead>
             <tr>
                 <th>Id</th>
+                <th>cedula</th>
                 <th>A. paterno</th>
                 <th>A. materno</th>
                 <th>Nombre</th>               
@@ -50,6 +51,7 @@ require_once "../controlador/sessionUserTypeAdmin.php";
             <tfoot>
             <tr>
                 <th>Id</th>
+                <th>cedula</th>
                 <th>A. paterno</th>
                 <th>A. materno</th>
                 <th>Nombre</th>               
@@ -78,7 +80,15 @@ require_once "../controlador/sessionUserTypeAdmin.php";
                     <div class="row-fluid" id="notificacion"></div>
                     <form id="formregistro"> 
                         <fieldset>
-                            <div class="form-group">                            
+                            <div class="form-group">
+
+                            <div class="col-lg-4">
+                                    <div class="form-group" id="campocedula">
+                                        <label class="control-label" for="cedula">cedula</label>
+                                        <input type="text" class="form-control" id="cedula" name="cedula">
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-4">
                                     <div class="form-group" id="campoapaterno">
                                         <label class="control-label" for="apaterno">Apellido paterno</label>

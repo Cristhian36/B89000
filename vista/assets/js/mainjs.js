@@ -3,7 +3,9 @@ x = $(document);
 x.ready(inicializarEventos);
 
 function inicializarEventos() {
-    loadUsers();        
+    loadUsers();
+    loadEmpleados();
+
 }
 function loadUsers() {
     $('#contenido').html("");
@@ -11,4 +13,12 @@ function loadUsers() {
         $('#contenido').html(response);
         $('#contenido').fadeIn();
     });
-}  
+}
+
+function loadEmpleados() {
+    $('#contenido').html("");
+    $.post("empleado.php", function(response) {        
+        $('#contenido').html(response);
+        $('#contenido').fadeIn();
+    });
+  } 

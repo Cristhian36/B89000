@@ -14,6 +14,7 @@ switch ($_POST['action']) {
     break;  
     
   case 'insert':
+    $cedula    =$_POST['cedula'];
     $apaterno  = $_POST['apaterno'];
     $amaterno  = $_POST['amaterno'];
     $nombre    = $_POST['nombre'];
@@ -21,9 +22,10 @@ switch ($_POST['action']) {
     $clave     = $_POST['clave'];
     $tipo      = $_POST['tipo'];
     $status    = $_POST['status'];
+    $cedula    = $_POST['cedula'];
 
     $bo = new usuarioBo();
-    $r = $bo->registrarUsuarioBo($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status);
+    $r = $bo->registrarUsuarioBo($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status, $cedula);
     print $r;
     break; 
 
@@ -44,9 +46,10 @@ switch ($_POST['action']) {
         $clave     = $_POST['k'];
         $tipo      = $_POST['l'];
         $status    = $_POST['m'];
+        $cedula    = $_POST['n'];
 
         $bo = new usuarioBo();
-        $r = $bo->saveDataUsuarioBo($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status);
+        $r = $bo->saveDataUsuarioBo($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status, $cedula);
         print $r;
         break;
 
