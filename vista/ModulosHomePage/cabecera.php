@@ -13,7 +13,7 @@
    <div class="links-wrapper">
       <ul class="menu-links">
          <li> <a href="#1">Home </a> </li>
-         <li> <a href="#2"> Blog</a> </li>
+         <li> <a href="vista/contacto.php"> Blog</a> </li>
          <li> <a href="#3">News </a> </li>
          <li> <a href="#4">Contact </a> </li>
          <li> <a href="#5">About </a> </li>
