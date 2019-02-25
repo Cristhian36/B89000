@@ -105,8 +105,8 @@ require_once "../controlador/sessionUserTypeClient1.php";
                 <div id="page-inner">
                     <div class="row-fluid" id="contenido">
                         <div class="col-md-12">
-                        <h2>Inicio</h2>   
-                         <h5>Bienvenido, un placer tenerte de vuelta Usuario</h5>                               
+                         <h2>Blank Page</h2>   
+                         <h5>Welcome, Love to see you back. </h5>                                
                     </div>
                     <!-- /. ROW  -->
                     <hr />
