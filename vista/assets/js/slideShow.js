@@ -20,7 +20,7 @@ $(document).ready(function () {
                         text: 'Download',
                         url: 'https://github.com/iamwizzdom/slideWiz',
                         class: 'btn btn-medium btn-primary',
-                        color: '#3781ce'
+                        color: '#fff'
                     }
                 },
                 {
@@ -35,7 +35,7 @@ $(document).ready(function () {
                         text: 'Goal.com',
                         url: 'https://github.com/iamwizzdom/slideWiz',
                         class: 'btn btn-medium btn-primary',
-                        color: '#3781ce'
+                        color: '#fff'
                     }
                 },
                 {
@@ -50,7 +50,7 @@ $(document).ready(function () {
                         text: 'SuperSports',
                         url: 'https://github.com/iamwizzdom/slideWiz',
                         class: 'btn btn-medium btn-primary',
-                        color: '#3781ce'
+                        color: '#fff'
                     }
                 },
                 {
@@ -65,7 +65,7 @@ $(document).ready(function () {
                         text: 'NBA.com',
                         url: false,
                         class: 'btn btn-medium btn-primary',
-                        color: '#3781ce'
+                        color: '#fff'
                     }
                 }
             ]

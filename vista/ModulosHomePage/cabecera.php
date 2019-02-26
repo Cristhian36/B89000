@@ -1,14 +1,8 @@
 <nav class="kite-menu">
-   <h2 class="kite-logo"> kite Menu</h2>
+   <h2 class="kite-logo">TuPrestamo</h2>
    <div class="kite-menu-trigger" id="hamburger"><span></span></div>
    <div class="kite-search-trigger">
       <i class="fa fa-search"></i>
-   </div>
-   <div class="kite-search">
-      <form action="#">
-         <input type="text" autocomplete="off" name="search" />
-         <button type="submit" class="search-btn"> <i class="fa fa-search"></i> </button>
-      </form>
    </div>
    <div class="links-wrapper">
       <ul class="menu-links">
@@ -20,5 +14,3 @@
       </ul>
    </div>
 </nav>
-
-<div class="slideWiz" style="width: 100%; height: 650px;"></div>
