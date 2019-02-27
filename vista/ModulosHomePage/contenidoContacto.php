@@ -18,7 +18,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h6 class="text-uppercase">para cualquier consulta puedes escribir un email. estaremos encantados de atenderte.</h6>
         <div class="container">
-          <form class="mt-3">
+          <form class="mt-3" id="form">
             <div class="form-group">
               <input type="text" id="name" class="form-control"  placeholder="Correo">
             </div>
@@ -31,7 +31,7 @@
             <div class="form-group">
               <textarea class="form-control" id="body" placeholder="Por favor coloque sus preguntas aquí" rows="3"></textarea>
             </div>
-            <input type="button" onclick="sendEmail()" value="Enviar" class="btn btn-primary">
+            <input type="button" id="envio" onclick="sendEmail()" value="Enviar" class="btn btn-primary">
           </form>
         </div>
       </div>

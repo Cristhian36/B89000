@@ -32,9 +32,9 @@
        $(".kite-menu").kiteMenu({
           kiteSkin: "rainbow",
           });
-    </script>
+    </script>   
 
-<script src="assets/js/Enviar_email.js"></script>
+   <script src="assets/js/Enviar_email.js"></script>
 
  
   </body>

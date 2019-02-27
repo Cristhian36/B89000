@@ -47,11 +47,14 @@ function sendEmail() {
                body: body
            }, success:function(response){
                 if (response.status == "success"){
-                    alert('Email Has Been Sent!');
-                    
-
+                    let form = document.querySelector('#form');
+                    document.querySelector('#envio').addEventListener('click', function(e){
+                        e.preventDefault();
+                        form.reset();
+                        alert('El correo fue enviado!');
+                    },false);
                 }else {
-                    alert('Please Try Again!');
+                    alert('Intente de nuevo!');
                 }
            }
         });
