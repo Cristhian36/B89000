@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,7 +20,7 @@
   </head>
   <body>
     <?php
-      include_once 'ModulosHomePage/cabecera.php';
+      include_once 'ModulosHomePage/menuModulos.php';
       include_once 'ModulosHomePage/contenidoContacto.php';
       include_once 'ModulosHomePage/footer.php';
     ?>
