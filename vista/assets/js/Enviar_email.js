@@ -12,7 +12,7 @@ function sendEmail() {
         alert("El correo es muy largo");
         return;
       }
-      if(subject.length>13){
+      if(subject.length>10){
         alert("El telefono es muy largo");
         return;
       }
@@ -45,12 +45,13 @@ function sendEmail() {
                email: email,
                subject: subject,
                body: body
-           }, success: function (response) {
-                if (response.status == "success")
+           }, success:function(response){
+                if (response.status == "success"){
                     alert('Email Has Been Sent!');
-                else {
+                    
+
+                }else {
                     alert('Please Try Again!');
-                    console.log(response);
                 }
            }
         });

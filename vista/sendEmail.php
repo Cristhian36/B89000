@@ -1,4 +1,6 @@
 <?php
+
+
     use PHPMailer\PHPMailer\PHPMailer;
 
     if (isset($_POST['name']) && isset($_POST['email'])) {
@@ -6,6 +8,7 @@
         $email = $_POST['email'];
         $subject = $_POST['subject'];
         $body = $_POST['body'];
+
 
         require_once "PHPMailer/PHPMailer.php";
         require_once "PHPMailer/SMTP.php";
@@ -25,6 +28,7 @@
         //Email Settings
         $mail->isHTML(true);
         $mail->setFrom($email, $name);
+        //Para probarlo por tu correo aqui
         $mail->addAddress("cristhian.b.g180@gmail.com");
         $mail->Subject = $subject;
         $mail->Body = $body;

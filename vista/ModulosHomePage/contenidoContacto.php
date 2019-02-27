@@ -32,7 +32,6 @@
               <textarea class="form-control" id="body" placeholder="Por favor coloque sus preguntas aquí" rows="3"></textarea>
             </div>
             <input type="button" onclick="sendEmail()" value="Enviar" class="btn btn-primary">
-
           </form>
         </div>
       </div>
