@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080/B89000/vista/contacto.php",
+            "url": "http://localhost:80/D890000",
             "webRoot": "${workspaceFolder}"
         }
     ]
