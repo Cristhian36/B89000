@@ -35,7 +35,6 @@ function sendEmail() {
       }
 
 
-//correo
 
         $.ajax({
            url: 'sendEmail.php',
