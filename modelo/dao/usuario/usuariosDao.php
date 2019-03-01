@@ -68,7 +68,7 @@ class usuarioDao {
 
                     session_start();
                     $_SESSION['idusuario']   = $row['idusuario']; 
-                    $_SESSION['nombre']      = $row['nombre'].' '.$row['amaterno'].' '.$row['paterno']; 
+                    $_SESSION['nombre']      = $row['apaterno'].' '.$row['amaterno'].' '.$row['nombre']; 
                     $_SESSION['tipo']        = $row['tipo'];               
                     $result = "<script>window.location='main.php';</script>"; 
 
@@ -84,7 +84,6 @@ class usuarioDao {
 
         return $result;     
     }
-
     function  registrarUsuarioDao($apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status,$cedula){
       $datosArray=array($usuario);
       $st=  procesaParametros::PrepareStatement(usuariosSql::validateIfExistsUser(),$datosArray);
@@ -107,7 +106,7 @@ class usuarioDao {
       return $result;
     }
 
-    function saveDataUsuarioDao($id, $apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status,$cedula) {
+    function saveDataUsuarioDao($id,$apaterno, $amaterno, $nombre, $usuario, $clave, $tipo, $status,$cedula) {
       $st = "UPDATE usuarios SET apaterno='$apaterno', amaterno='$amaterno', nombre='$nombre', usuario='$usuario', clave='$clave', tipo='$tipo', status='$status', cedula='$cedula' WHERE idUsuario = '$id'";
       $query = $this->con->query($st); 
       $result = Notification::updatedRecord($query);
@@ -164,8 +163,8 @@ class usuarioDao {
 
         $cad = '
             <fieldset>
-                <div class="form-group"> 
-                    <input type="hidden" class="form-control" name="a" value="'.$row['idusuario'].'">                           
+                <div class="form-group">
+                <input type="hidden" class="form-control" name="a" value="'.$row['idusuario'].'">                     
                     <div class="col-lg-4">
                         <div class="form-group" id="campoapaterno">
                             <label class="control-label" for="apaterno">Apellido paterno</label>

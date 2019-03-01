@@ -14,7 +14,7 @@ switch ($_POST['action']) {
     break;  
     
   case 'insert':
-    $cedula    =$_POST['cedula'];
+    $cedula    = $_POST['cedula'];
     $apaterno  = $_POST['apaterno'];
     $amaterno  = $_POST['amaterno'];
     $nombre    = $_POST['nombre'];
