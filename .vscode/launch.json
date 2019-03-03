@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
 
+
       {
         "type": "chrome",
         "request": "launch",
@@ -12,5 +13,6 @@
         "url": "http://localhost:8080/B89000/vista/contacto.php",
         "webRoot": "${workspaceFolder}"
       }
+
     ]
   }
