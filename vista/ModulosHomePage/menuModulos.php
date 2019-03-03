@@ -8,7 +8,7 @@
       <ul class="menu-links">
          <li> <a href="../index.php">Home </a> </li>
          <li> <a href="solicitudPrestamo.php">Solicitud Préstamos</a> </li>
-         <li> <a href="#3">News </a> </li>
+         <li> <a href="calculadora.php">calculadora</a> </li>
          <li> <a href="contacto.php">Contactos </a> </li>
          <li> <a href="#5">About </a> </li>
       </ul>
