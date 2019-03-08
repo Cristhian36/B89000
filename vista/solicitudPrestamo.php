@@ -8,6 +8,7 @@
       include_once 'ModulosHomePage/linkBootstrap.php';
      ?>
      <link rel="stylesheet" href="assets/css/kite-menu.css">
+     <link rel="stylesheet" href="assets/css/toastr.css">
      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
      <link rel="stylesheet" href="assets\css\solicitud.css">
@@ -24,5 +25,8 @@
           kiteSkin: "rainbow",
           });
     </script>
+     <script src="assets/js/jquery.min.js"></script>
+     <script src="assets/js/toastr.min.js"></script>
+     <script src="assets/js/main.js"></script>
   </body>
 </html>

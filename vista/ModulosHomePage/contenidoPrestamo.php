@@ -40,7 +40,7 @@
           <a href="#" class="bg-primary boton py-2 text-white text-uppercase" data-toggle="modal" data-target=".bd-example-modal-xl">Solicitar Préstamos con garantía</a>
 
         </div>
-        <div class="modal fade bd-example-modal-xl"  tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal fade bd-example-modal-xl" id="formulario_prestamo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -50,55 +50,57 @@
              </button>
            </div>
            <div class="modal-body">
-             <form class="" action="index.html" method="post">
+             <form class="" id="form_prestamo" method="post">
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">nombres y apellidos*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="text" name="nombre" class="form-control" value="" required>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">cédula/pasaporte*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="text" name="cedula_pasaporte" class="form-control" value="" required>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">fecha de nacimiento(01/01/1990)*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="date" name="fecha_nacimiento" class="form-control" value="" required>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">Teléfonos*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="tel" name="telefono" class="form-control" value="" required>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">email*</label>
-                   <input type="email" name="nombres" class="form-control" value="" required>
+                   <input type="email" name="email" class="form-control" value="" required>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">provincia*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="text" name="provincia" class="form-control" value="" required>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">ciudad*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="text" name="ciudad" class="form-control" value="" required>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">calle*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="text" name="calle" class="form-control" value="" required>
                  </div>
                </div>
-               <div class="row">
+                <div class="form_group col-md-6">
+                   <label for="tipo_garantia" class="text-uppercase">Tipo garantia</label>
+                  <select name="tipo_garantia" id="tipo_garantia" class="form-control">
+                    <option value="aval">Aval</option>
+                    <option value="embargo">Embargo</option>
+                    <option value="hipoteca">Hipoteca</option>
+                  </select>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">monto a solicicitar rd$*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
-                 </div>
-                 <div class="form-group col-6">
-                   <label for="nombres" class="">TIPO DE GARANTIA*</label>
-                   <input type="text" name="nombres" class="form-control" value="" required>
+                   <input type="number" name="monto" class="form-control" value="" required>
                  </div>
                </div>
                <div class="row">
