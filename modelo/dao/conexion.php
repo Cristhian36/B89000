@@ -60,6 +60,7 @@ public $conn;
 			$_SESSION['id_user'] = $datos['id_user'];
 			$_SESSION['nombre'] = $datos['nombre'];
 			$_SESSION['email'] = $datos['email'];
+			$_SESSION['telefono'] = $datos['telefono'];
 			$_SESSION['role'] = $datos['role'];
 
 			// header("Location: dentro.php");
