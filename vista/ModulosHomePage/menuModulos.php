@@ -11,6 +11,7 @@
          <li> <a href="#3">News </a> </li>
          <li> <a href="contacto.php">Contactos </a> </li>
          <li> <a href="#5">About </a> </li>
+         <li> <a href="login.php">Login</a> </li>
       </ul>
    </div>
 </nav>

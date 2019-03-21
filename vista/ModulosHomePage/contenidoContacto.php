@@ -18,20 +18,20 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h6 class="text-uppercase">para cualquier consulta puedes escribir un email. estaremos encantados de atenderte.</h6>
         <div class="container">
-          <form class="mt-3" action="index.html" method="post">
+          <form class="mt-3" id="form">
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Correo">
+              <input type="text" id="name" class="form-control"  placeholder="Correo">
             </div>
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Confirme su correo">
+              <input type="email" id="email" class="form-control"  placeholder="Confirme su correo">
             </div>
             <div class="form-group">
-              <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+              <input type="text" id="subject" name="telefono" class="form-control" placeholder="Teléfono">
             </div>
             <div class="form-group">
-              <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Por favor coloque sus preguntas aquí" rows="3"></textarea>
+              <textarea class="form-control" id="body" placeholder="Por favor coloque sus preguntas aquí" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary py-2 pr-8">Enviar</button>
+            <input type="button" id="envio" onclick="sendEmail()" value="Enviar" class="btn btn-primary">
           </form>
         </div>
       </div>

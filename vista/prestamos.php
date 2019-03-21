@@ -1,46 +1,54 @@
-<div class="container-fluid mt-5 bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 class="text-uppercase text-center display-3 ">solicita tu préstamos ahora</h1>
-        <p class="text-center display-4">Préstamos sin garantía y con garantía</p>
-      </div>
-    </div>
-  </div>
+<?php session_start();
+
+if (!isset($_SESSION['id_user'])) {
+	header("location:../index.php");
+}?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="./assets/css/toastr.css"/>
+</head>
+<body>
+
+<?php include('header_dentro.php');?>
+	
+<div class="container justify-content-center">
+	<div class="row">
+		<div class="col-sm-12 col-md-4 col-lg-4 pt-5 pb-3 bg-white">
+			<?php include('slider.php');?>
+		</div>
+		<div class="col-sm-12 col-md-8 col-lg-8 pt-5">
+			<div class="container">
+				
+				<h2>Prestamos</h2>
+
+	          <div class="row">
+	            <div class="col-sm-12 col-md-4 col-lg-4">
+	                <a class="nav-link text-white btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl" href="#">Agregar prestamo</a>
+	            </div>
+	            <div class="col-sm-12 col-md-4 col-lg-4"></div>
+	            <div class="col-sm-12 col-md-4 col-lg-4">
+	                <input class="form-control mr-sm-2" type="search" name="buscar" placeholder="Buscar" id="buscador_prestamos" aria-label="Search">
+	            </div>
+	          </div>
+
+	          <div id="datos_prestamos" style="overflow-X:scroll;"></div>
+
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="container-fluid mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-        <div class="contenedor">
-          <img src="assets/img/fondo1.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="centrado">
-          <h4 class="text-white">PRÉSTAMO SIN GARANTÍA</h4>
-          <p class="text-uppercase text-white">* requisitos *</p>
-          <p class="text-white">Ser mayor de 18 años <br>
-            Cédula o pasaporte vigente <br>
-            Ingresos fijos demostrables
-          </p>
-          <a href="#" class="bg-primary boton py-2 text-white text-uppercase">Solicitar Préstamos sin garantía</a>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
-        <div class="contenedor">
-            <img src="assets/img/fondo2.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="centrado">
-          <h4 class="text-white">PRÉSTAMO CON GARANTÍA</h4>
-          <p class="text-uppercase text-white">* requisitos *</p>
-          <p class="text-white">Ser mayor de 18 años <br>
-            Cédula o pasaporte vigente <br>
-            Ingresos fijos demostrables
-          </p>
-          <a href="#" class="bg-primary boton py-2 text-white text-uppercase" data-toggle="modal" data-target=".bd-example-modal-xl">Solicitar Préstamos con garantía</a>
 
-        </div>
-        <div class="modal fade bd-example-modal-xl" id="formulario_prestamo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+
+
+
+<div class="modal fade bd-example-modal-xl " id="formulario_prestamo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -118,7 +126,13 @@
           </div>
         </div>
       </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/toastr.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/buscadores.js"></script>
+</body>
+</html>
