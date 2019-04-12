@@ -12,32 +12,45 @@ if (!isset($_SESSION['id_user'])) {
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel="stylesheet" href="./assets/css/toastr.css"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
 
 <?php include('header_dentro.php');?>
 	
-<div class="container justify-content-center">
+<div class="justify-content-center pt-5">
 	<div class="row">
-		<div class="col-sm-12 col-md-4 col-lg-4 pt-5 pb-3 bg-white">
+		<div class="col-sm-12 col-md-3 col-lg-3 pt-5 pb-3" style="background:#D5DBDB;">
 			<?php include('slider.php');?>
 		</div>
-		<div class="col-sm-12 col-md-8 col-lg-8 pt-5">
+		<div class="col-sm-12 col-md-9 col-lg-9 pt-5">
 			<div class="container">
 				
-				<h2>Prestamos</h2>
+              <?php if ($_SESSION['role'] == "admin") {?>
+              <h2>Prestamos</h2>
+             <?php }else if ($_SESSION['role'] == "user"){ ?>
+              <h2>Mis prestamos</h2>
+             <?php } ?>
 
 	          <div class="row">
 	            <div class="col-sm-12 col-md-4 col-lg-4">
-	                <a class="nav-link text-white btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl" href="#">Agregar prestamo</a>
+
+             <?php if ($_SESSION['role'] == "admin") {?>
+                <a class="nav-link text-white btn btn-primary" data-toggle="modal" data-target="#prestamo" href="#">Agregar prestamo</a>
+             <?php }else if ($_SESSION['role'] == "user"){ ?>
+                <a class="nav-link text-white btn btn-primary" data-toggle="modal" data-target="#prestamo" href="#">Solicitar prestamo</a>
+             <?php } ?>
 	            </div>
 	            <div class="col-sm-12 col-md-4 col-lg-4"></div>
 	            <div class="col-sm-12 col-md-4 col-lg-4">
 	                <input class="form-control mr-sm-2" type="search" name="buscar" placeholder="Buscar" id="buscador_prestamos" aria-label="Search">
 	            </div>
 	          </div>
-
-	          <div id="datos_prestamos" style="overflow-X:scroll;"></div>
+            <?php if ($_SESSION['role'] == "admin") {?>
+              <div id="datos_prestamos_administrador" style="overflow-X:scroll;" class="mb-5"></div>
+             <?php }else if ($_SESSION['role'] == "user"){ ?>
+              <div id="datos_prestamos" style="overflow-X:scroll;" class="mb-5"></div>
+             <?php } ?>
 
 			</div>
 		</div>
@@ -45,92 +58,119 @@ if (!isset($_SESSION['id_user'])) {
 </div>
 
 
-
-
-
-<div class="modal fade bd-example-modal-xl " id="formulario_prestamo" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header bg-primary">
-             <h5 class="modal-title text-uppercase text-white" id="exampleModalScrollableTitle">Solicitud Préstamos con garantía</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-           </div>
-           <div class="modal-body">
-             <form class="" id="form_prestamo" method="post">
+<div class="modal fade" id="prestamo" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Solicitar prestamo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <form class="" id="form_prestamo" method="post">
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">nombres y apellidos*</label>
-                   <input type="text" name="nombre" class="form-control" value="" required>
+                   <?php if ($_SESSION['role'] == "user") {?>
+                   <input type="text" value="<?=$_SESSION['nombre'];?>" class="form-control" disabled>
+                   <input type="hidden" name="nombre" value="<?=$_SESSION['nombre'];?>">
+                 <?php }else{ ?>
+                  <input type="text" name="nombre" class="form-control">
+                 <?php } ?>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">cédula/pasaporte*</label>
-                   <input type="text" name="cedula_pasaporte" class="form-control" value="" required>
+                   <?php if ($_SESSION['role'] == "user") {?>
+                   <input type="text" name="cedula_pasaporte" class="form-control" value="<?=$_SESSION['cedula'];?>" required disabled>
+                   <input type="hidden" name="cedula_pasaporte" class="form-control" value="<?=$_SESSION['cedula'];?>">
+                  <?php }else{ ?>
+                  <input type="text" name="cedula_pasaporte" class="form-control" required>
+                 <?php } ?>
+                 </div>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">fecha de nacimiento(01/01/1990)*</label>
-                   <input type="date" name="fecha_nacimiento" class="form-control" value="" required>
+                   <?php if ($_SESSION['role'] == "user") {?>
+                   <input type="date" class="form-control" value="<?=$_SESSION['fecha_nacimiento'];?>" disabled>
+                   <input type="hidden" name="fecha_nacimiento" class="form-control" value="<?=$_SESSION['fecha_nacimiento'];?>">
+                  <?php }else{ ?>
+                  <input type="date" name="fecha_nacimiento" class="form-control" required="">
+                 <?php } ?>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">Teléfonos*</label>
-                   <input type="tel" name="telefono" class="form-control" value="" required>
+                   <?php if ($_SESSION['role'] == "user") {?>
+                   <input type="tel" class="form-control" value="<?=$_SESSION['telefono'];?>" disabled>
+                   <input type="hidden" name="telefono" class="form-control" value="<?=$_SESSION['telefono'];?>">
+                  <?php }else{ ?>
+                   <input type="tel" class="form-control" name="telefono" required="">
+                 <?php } ?>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">email*</label>
-                   <input type="email" name="email" class="form-control" value="" required>
+                   <?php if ($_SESSION['role'] == "user") {?>
+                   <input type="email" name="email" value="<?=$_SESSION['email'];?>" class="form-control" required disabled>
+                   <input type="hidden" name="email" value="<?=$_SESSION['email'];?>" class="form-control">
+                  <?php }else{ ?>
+                  <input type="email" name="email" class="form-control" required>
+                 <?php } ?>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">provincia*</label>
-                   <input type="text" name="provincia" class="form-control" value="" required>
+                   <input type="text" name="provincia" class="form-control" required>
                  </div>
                </div>
                <div class="row">
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">ciudad*</label>
-                   <input type="text" name="ciudad" class="form-control" value="" required>
+                   <input type="text" name="ciudad" class="form-control" required>
                  </div>
                  <div class="form-group col-6">
                    <label for="nombres" class="text-uppercase">calle*</label>
-                   <input type="text" name="calle" class="form-control" value="" required>
+                   <input type="text" name="calle" class="form-control" required>
                  </div>
                </div>
-                <div class="form_group col-md-6">
+                <div class="form_group">
                    <label for="tipo_garantia" class="text-uppercase">Tipo garantia</label>
                   <select name="tipo_garantia" id="tipo_garantia" class="form-control">
                     <option value="aval">Aval</option>
                     <option value="embargo">Embargo</option>
                     <option value="hipoteca">Hipoteca</option>
                   </select>
-                 <div class="form-group col-6">
-                   <label for="nombres" class="text-uppercase">monto a solicicitar rd$*</label>
-                   <input type="number" name="monto" class="form-control" value="" required>
-                 </div>
                </div>
-               <div class="row">
+              <div class="row">
                  <div class="form-group col-6">
+                   <label for="nombres" class="text-uppercase">Monto rd$*</label>
+                   <input type="number" name="monto" class="form-control" required>
+                 </div>
+                  <div class="form-group col-6">
+                   <label for="meses" class="text-uppercase">Tiempo a pagar en meses*</label>
+                   <input type="number" name="meses" class="form-control" required>
+                 </div>
+              </div>
+                 <div class="form-group">
                    <label for="nombres" class="text-uppercase">comentario*</label>
                    <textarea class="form-control" name="comentario" rows="3" required></textarea>
                  </div>
-               </div>
-               <p>El cliente es responsable de la veracidad de sus datos, comprometiéndose a no introducir datos falsos y a proceder a la modificación de los mismos si fuera necesario. Al rellenar esta solicitud reconoce y autoriza a Avalyca S.R.L. a verificar dicha información con todos los medios a nuestro alcance, incluido la consulta en los burós de información de crédito que consideremos oportunos. Avalyca S.R.L. se reserva el derecho de solicitar más información en caso de que sea necesario. Una solicitud de préstamo no constituye una obligación imputable a Avalyca S.R.L. para la aprobación del mismo.</p>
-               <p>Su información podrá ser compartida con otras entidades ajenas a AVALYCA S.R.L. en aquellos casos en los que dicha entidad deba realizar alguna acción para nosotros o para satisfacer la necesidad de su solicitud. En estos casos AVALYCA S.R.L. tratará de asegurar que la información sólo se utilizará por parte de estas entidades para realizar la función para la que se contratan. Sólo revelaremos aquella información que sea absolutamente precisa para dicha labor. En cualquier momento podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición, comunicándolo a AVALYCA S.R.L. por e-mail (info@avalyca.com) o por carta a AVALYCA, calle Arquímedes Soto número 3, Higuey, provincia La Altagracia, República Dominicana.
-               </p>
-               <input type="submit" name="" class="btn-primary py-2 text-white justify-content-center enviar" value="SOLICITAR">
+            
+               <input type="submit" name="" class="btn btn-success text-white justify-content-center enviar" value="Solicitar prestamo">
              </form>
-           </div>
           </div>
-        </div>
       </div>
-
+    </div>
+  </div>
+</div>
 
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/sweetalert2.js"></script>
 <script src="assets/js/toastr.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/buscadores.js"></script>

@@ -12,6 +12,7 @@
          <li> <a href="vista/contacto.php">Contactos</a> </li>
          <li> <a href="#5">About </a> </li>
          <li> <a href="vista/login.php">Login </a> </li>
+         <li> <a href="vista/registro.php">Registro </a> </li>
       </ul>
    </div>
 </nav>

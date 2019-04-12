@@ -48,8 +48,16 @@ public $conn;
 		return $resultado;
 	}
 
+	public function una_consulta($sql){
+		$cx = self::getConexion();
+		$ResultSet = mysqli_query($cx, $sql);
+		$filas = mysqli_fetch_array($ResultSet);
+		return $filas;
+	}
+
 	public function login($user, $pass){
 		$cx = self::getConexion();
+		$pass = md5($pass);
 		$sql = "SELECT * FROM usuarios WHERE email = '{$user}' AND clave = '{$pass}'";
 		$query = mysqli_query($cx, $sql);
 		$count = mysqli_num_rows($query);
@@ -58,13 +66,16 @@ public $conn;
 			$datos = mysqli_fetch_array($query);
 			session_start();
 			$_SESSION['id_user'] = $datos['id_user'];
-			$_SESSION['nombre'] = $datos['nombre'];
+			$_SESSION['nombre'] = $datos['nombre']." ".$datos['apellido'];
+			$_SESSION['fecha_nacimiento'] = $datos['fecha_nacimiento'];
 			$_SESSION['email'] = $datos['email'];
 			$_SESSION['telefono'] = $datos['telefono'];
+			$_SESSION['cedula'] = $datos['cedula'];
+			$_SESSION['direccion'] = $datos['direccion'];
 			$_SESSION['role'] = $datos['role'];
 
 			// header("Location: dentro.php");
-			// echo "1";
+			echo "ok";
 			return true;
 		}else{
 			return false;
@@ -79,6 +90,3 @@ public $conn;
 
 ?>
 
-
-
-?>

@@ -7,6 +7,7 @@
 </head>
 <body>
   <?php
+  
    require_once 'controlador/HomePageController.php';
    $home = new HomePageController();
    $home->inicio();
